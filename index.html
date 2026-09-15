@@ -1,0 +1,518 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DOJA CAT - Duarte</title>
+
+    <style>
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
+        body {
+            min-height: 100vh;
+            padding: 35px;
+            color: white;
+
+            background:
+                radial-gradient(
+                    circle at 20% 10%,
+                    #43213d 0%,
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 80% 80%,
+                    #281d3d 0%,
+                    transparent 40%
+                ),
+                linear-gradient(
+                    135deg,
+                    #08070b,
+                    #17131c 45%,
+                    #0b0910
+                );
+
+            background-attachment: fixed;
+        }
+
+
+
+
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        header h1 {
+            font-size: 45px;
+            font-weight: bold;
+            letter-spacing: 8px;
+
+            color: #f0d9e9;
+
+            text-shadow:
+                0 4px 15px rgba(0, 0, 0, 0.9);
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 17px;
+            color: #c9bdc8;
+        }
+
+
+
+
+        .contenedor {
+            max-width: 1050px;
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 28px;
+        }
+
+
+
+        .tarjeta {
+
+            position: relative;
+
+            padding: 30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #211a23,
+                    #120f16
+                );
+
+            
+
+            clip-path: polygon(
+                25px 0,
+                calc(100% - 25px) 0,
+                100% 25px,
+                100% calc(100% - 25px),
+                calc(100% - 25px) 100%,
+                25px 100%,
+                0 calc(100% - 25px),
+                0 25px
+            );
+
+            box-shadow:
+                0 18px 45px rgba(0, 0, 0, 0.65);
+
+            border: 1px solid #5a4657;
+        }
+
+
+
+        .tarjeta::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 7px;
+
+            border: 1px solid rgba(220, 190, 215, 0.25);
+
+            pointer-events: none;
+
+            clip-path: polygon(
+                18px 0,
+                calc(100% - 18px) 0,
+                100% 18px,
+                100% calc(100% - 18px),
+                calc(100% - 18px) 100%,
+                18px 100%,
+                0 calc(100% - 18px),
+                0 18px
+            );
+        }
+
+
+        .tarjeta h2 {
+
+            font-size: 28px;
+
+            margin-bottom: 18px;
+
+            color: #ead0df;
+
+            letter-spacing: 1px;
+        }
+
+
+        .tarjeta p {
+
+            font-size: 16px;
+
+            line-height: 1.7;
+
+            color: #ddd5dd;
+        }
+
+
+        .imagen-tarjeta {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+        }
+
+
+        .imagen-tarjeta img {
+
+            width: 100%;
+
+            height: 300px;
+
+            object-fit: cover;
+
+            clip-path: polygon(
+                18px 0,
+                calc(100% - 18px) 0,
+                100% 18px,
+                100% calc(100% - 18px),
+                calc(100% - 18px) 100%,
+                18px 100%,
+                0 calc(100% - 18px),
+                0 18px
+            );
+
+            border: 2px solid #806477;
+
+            box-shadow:
+                0 12px 30px rgba(0, 0, 0, 0.7);
+        }
+
+
+
+        .boton-contenedor {
+
+            grid-column: 1 / 3;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            margin: 5px 0;
+        }
+
+
+        .boton {
+
+            display: inline-block;
+
+            padding: 15px 42px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #342534,
+                    #18131b
+                );
+
+            color: #eee1eb;
+
+            text-decoration: none;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+
+            border: 1px solid #806477;
+
+            border-radius: 3px;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.6);
+
+            transition: 0.3s;
+        }
+
+
+        .boton:hover {
+
+            transform: translateY(-3px);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #493448,
+                    #201822
+                );
+        }
+
+
+    
+
+        .info-completa {
+
+            grid-column: 1 / 3;
+
+            padding: 42px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #251b26,
+                    #120f15 55%,
+                    #1d1722
+                );
+
+        
+
+            clip-path: polygon(
+                30px 0,
+                calc(100% - 30px) 0,
+                100% 30px,
+                100% calc(100% - 30px),
+                calc(100% - 30px) 100%,
+                30px 100%,
+                0 calc(100% - 30px),
+                0 30px
+            );
+
+            border: 1px solid #685266;
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.75);
+        }
+
+
+        .info-completa h2 {
+
+            text-align: center;
+
+            font-size: 30px;
+
+            margin-bottom: 25px;
+
+            color: #ead0df;
+
+            letter-spacing: 1px;
+        }
+
+
+        .info-completa p {
+
+            font-size: 17px;
+
+            line-height: 1.8;
+
+            text-align: justify;
+
+            color: #ddd5dd;
+        }
+
+
+     
+        footer {
+
+            max-width: 1050px;
+
+            margin: 30px auto 0;
+
+            text-align: left;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            color: #cfc0cc;
+        }
+
+
+
+
+        @media (max-width: 700px) {
+
+            body {
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            .contenedor {
+                grid-template-columns: 1fr;
+            }
+
+            .boton-contenedor {
+                grid-column: 1;
+            }
+
+            .info-completa {
+                grid-column: 1;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+
+    <header>
+
+        <h1>DOJA CAT</h1>
+
+    </header>
+
+
+
+    
+
+    <main class="contenedor">
+
+
+        <section class="tarjeta">
+
+
+            <p>
+                Doja Cat es una cantante, rapera, compositora
+                y artista estadounidense conocida por combinar
+                diferentes estilos musicales y visuales.
+            </p>
+
+            <br>
+
+            <p>
+                Su música incorpora elementos de pop, rap, R&B
+                y otros géneros, mientras que sus presentaciones
+                destacan por su creatividad y originalidad.
+            </p>
+
+        </section>
+
+
+
+   
+
+        <section class="tarjeta imagen-tarjeta">
+
+            <img
+                src="1.jpg"
+                alt="Presentación musical"
+            >
+
+        </section>
+
+
+
+        
+
+        <div class="boton-contenedor">
+
+            <a
+                class="boton"
+                href="https://www.dojacat.com/"
+                target="_blank"
+            >
+                Visitar página
+            </a>
+
+        </div>
+
+
+
+  
+
+        <section class="info-completa">
+
+            <h2>
+ Doja Cat
+            </h2>
+
+
+            <p>
+                Doja Cat es una artista estadounidense que se
+                ha destacado como cantante, rapera, compositora
+                y productora. Nació el 21 de octubre de 1995
+                en Los Ángeles, California.
+            </p>
+
+            <br>
+
+
+            <p>
+                Comenzó a ganar reconocimiento gracias a sus
+                canciones y a su presencia en internet. Con el
+                tiempo, desarrolló un estilo musical propio que
+                combina pop, rap, R&B y diferentes influencias.
+            </p>
+
+            <br>
+
+
+            <p>
+                Su carrera incluye canciones populares y
+                diferentes álbumes que han alcanzado gran
+                reconocimiento internacional.
+            </p>
+
+            <br>
+
+
+            <p>
+                Además de su música, Doja Cat es conocida por
+                sus propuestas visuales, videoclips, vestuarios
+                y presentaciones creativas que forman parte
+                importante de su identidad artística.
+            </p>
+
+            <br>
+
+
+            <p>
+                Gracias a su originalidad y versatilidad,
+                Doja Cat se ha convertido en una de las artistas
+                contemporáneas más reconocidas dentro de la
+                música pop y urbana.
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+
+    
+
+    <footer>
+
+        Duarte 3 Info-A | 14 de septiembre de 2026
+
+    </footer>
+
+
+</body>
+
+</html>
